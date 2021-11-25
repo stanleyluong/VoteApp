@@ -1,0 +1,51 @@
+/* .vote-count {
+    display: flex;
+    justify-content: 'center';
+    background-color: 'grey';
+} */
+
+.img {
+    width: 100%;
+    /* display: block; */
+    margin: auto;
+    /* border: 5px solid yellow; */
+}
+
+.img-col {
+    border: 5px solid black;
+    padding: 1px;
+    align-items: center;
+}
+
+.img-row {
+    padding: 5%;
+}
+
+.button-row {
+    margin: auto;
+    text-align: center;
+}
+
+.home-button-row {
+    text-align: center;
+}
+
+.home-headers {
+    text-align: center;
+}
+/* style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'center',padding: '3vw'}} */
+
+/* style={{ marginTop: '5vg', backgroundColor: 'green' }} */
+
+/* style={{ marginTop: '5vg', borderColor: 'black' }} */
+
+/* style={{
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+    border: '5px solid black',
+    height: '20vh',
+    alignItems: 'center',
+    padding: '2vh',
+    textAlign: 'center'
+}} */

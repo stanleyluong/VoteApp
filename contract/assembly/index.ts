@@ -1,4 +1,79 @@
-import { logging, PersistentMap, PersistentUnorderedMap } from 'near-sdk-as'
+// contract/assembly/index.ts
+import { Election, elections } from "./model";
+import { logging, PersistentUnorderedMap, math } from 'near-sdk-as'
+
+// export the create method. This acts like an endpoint
+// that we'll be able to call from our web app.
+export function create(
+    // id: i32,
+    candidate1Name: string, 
+    candidate2Name: string, 
+    candidate1URL: string, 
+    candidate2URL: string, 
+    description: string, 
+    candidate1Votes: i32, 
+    candidate2Votes: i32, 
+    voters: string[]
+    ): Election {
+      // if(elections.contains('elections')){
+
+      // }
+      // const election = {
+      //               id: math.hash32<string>(description),
+      //               candidate1Name: candidate1Name,
+      //               candidate2Name: candidate2Name,
+      //               candidate1URL: candidate1URL,
+      //               candidate2URL: candidate2URL,
+      //               description: description,
+      //               candidate1Votes: candidate1Votes,
+      //               candidate2Votes: candidate2Votes,
+      //               voters: voters
+      //           }
+      // let id = math.hash32<string>(description)
+      // elections.set(id, election)
+    //   elections.set(id, {
+    //     candidate1Name: candidate1Name,
+    //     candidate2Name: candidate2Name,
+    //     candidate1URL: candidate1URL,
+    //     candidate2URL: candidate2URL,
+    //     description: description,
+    //     candidate1Votes: 0,
+    //     candidate2Votes: 0,
+    //     voters: []
+    // })
+      logging.log('in create')
+  // let candidate1Name = election.candidate1Name
+  // let candidate2Name = election.candidate2Name
+  // let candidate1URL = election.candidate1URL
+  // let candidate2URL = election.candidate2URL
+  // let description = election.description
+  // let voters: string[] = []
+  // let candidate1Votes = 0
+  // let candidate2Votes = 0
+  // use the Todo class to persist the todo data
+  // logging.log('in create')
+  // logging.log(candidate1Name)
+  // logging.log(candidate2Name)
+  // logging.log(candidate1URL)
+  // logging.log(candidate2URL)
+  // logging.log(description)
+        // let id = math.hash32<string>(description)
+
+  return Election.insert(
+    candidate1Name,
+    candidate2Name,
+    candidate1URL,
+    candidate2URL,
+    description, 
+    // 0, 0, []
+    candidate1Votes,
+    candidate2Votes,
+    voters
+    );
+}
+
+
+//above this line is testing Election model and crud functions
 
 const CandidateURL = new PersistentUnorderedMap<string,string>("CandidateURL")
 const CandidatePair = new PersistentUnorderedMap<string,string[]>("Candidate Pair")
@@ -7,6 +82,8 @@ const VoteArray = new PersistentUnorderedMap<string,i32[]>("stores votes ")
 const UserParticipation = new PersistentUnorderedMap<string,string[]>('user Participation Record')
 
 //view
+
+
 export function getUrl(name:string):string{
   if(CandidateURL.contains(name)){
     return CandidateURL.getSome(name)
@@ -28,8 +105,6 @@ export function didParticipate(prompt:string, user:string):bool{
 
 export function getAllPrompt():string[]{
   if(PromptArray.contains('AllArrays')){
-    // logging.log('all prompts' + PromptArray)
-    // logging.log('get arrays', PromptArray.getSome('AllArrays'))
     return PromptArray.getSome('AllArrays')
   } else {
     logging.log('no prompts found')
@@ -67,7 +142,6 @@ export function addCandidatePair(prompt:string, name1:string, name2:string):void
 }
 
 export function addToPromptArray(prompt:string):void{
-  // console.log(PromptArray)
   logging.log(PromptArray)
   if(PromptArray.contains('AllArrays')){
     let tempArray = PromptArray.getSome('AllArrays')

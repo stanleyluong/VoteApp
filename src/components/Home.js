@@ -22,9 +22,9 @@ const Home = props => {
     return (
         <div>
             <Container>
-                <Table style={{ margin: "5vh" }} striped bordered hover>
+                <Table striped bordered hover>
                     <thead>
-                        <tr>
+                        <tr className="home-headers">
                             <th>#</th>
                             <th>List of Polls</th>
                             <th>Go to Poll</th>
@@ -33,7 +33,7 @@ const Home = props => {
                     <tbody>
                         {promptsState.map((el,index)=>{
                             return (
-                                <tr key={index}>
+                                <tr className="home-button-row" key={index}>
                                     <td>{index+1}</td>
                                     <td>{el}</td>
                                     <td><Button onClick={()=>props.changeCandidates(el)}>Go Vote</Button></td>
