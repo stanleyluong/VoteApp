@@ -29,7 +29,7 @@ export default function App() {
     <Router>
       <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
         <Container>
-          <Navbar.Brand href='/'>
+          <Navbar.Brand href='/VoteApp'>
             <p><img src={StanleyLogo} width="30" height="30" alt="logo"></img>VoteApp</p>
             
           </Navbar.Brand>
@@ -37,7 +37,7 @@ export default function App() {
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mx-auto'></Nav>
             <Nav>
-              <Nav.Link href='/NewPoll'>New Poll</Nav.Link>
+              <Nav.Link href='/VoteApp/NewPoll'>New Poll</Nav.Link>
               <Nav.Link onClick={window.accountId === "" ? login : logout}>
                 {window.accountId === "" ? "Login" : window.accountId}
               </Nav.Link>
@@ -46,14 +46,14 @@ export default function App() {
         </Container>
       </Navbar>
       <Switch>
-        <Route exact path='/'>
+        <Route exact path='/VoteApp'>
           <Home changeCandidates={changeCandidateFunction} />
         </Route>
-        <Route exact path='/PollingStation'>
+        <Route exact path='/VoteApp/PollingStation'>
           <PollingStation />
         </Route>
-        <Route exact path='/NewPoll'>
-          <NewPoll />
+        <Route exact path='/VoteApp/NewPoll'>
+          <NewPoll changeCandidates={changeCandidateFunction} />
         </Route>
       </Switch>
     </Router>

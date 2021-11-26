@@ -79,20 +79,16 @@ export function addToPromptArray(prompt:string):void{
   logging.log('added to prompt array')
 }
 
-export function deletePrompt(prompt:string):void{
+export function setPrompts(prompts:string[]):string[]{
   logging.log('in deletePrompt function')
-  logging.log(prompt)
-
-  PromptArray.delete(prompt)
-  // if(PromptArray.contains('AllArrays')){
-  //    let prompts = PromptArray.getSome('AllArrays')
-    //  prompts = prompts.filter((poll) => poll !== prompt)
-    //cant filter, must find delete function in docs
-  //    PromptArray.set('AllArrays',prompts)
-  // } else {
-  //   logging.log('no prompts found')
-    // return []
-  // }
+  logging.log(prompts)
+ 
+  PromptArray.set('AllArrays', prompts)
+  
+  let newArrays = PromptArray.getSome('AllArrays')
+  logging.log('tempArray')
+  logging.log(newArrays)
+  return newArrays
 }
 
 export function addVote(prompt:string,index:i32):void{

@@ -1,0 +1,38 @@
+.img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+}
+
+.img-col {
+    border: 5px solid black;
+    padding: 1px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.img-row {
+    display: inline-block;
+}
+
+.img-row-outer-div {
+    text-align: center;
+}
+.button-row {
+    margin: auto;
+    text-align: center;
+}
+
+.home-button-row {
+    text-align: center;
+}
+
+.home-headers {
+    text-align: center;
+}
+
+.description {
+    font-size: xx-large;
+}
